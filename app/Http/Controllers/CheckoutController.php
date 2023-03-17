@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\MercadoPagoBoletoPaymentMethodEnum;
 use App\Http\Requests\PaymentRequest;
 use App\Services\CheckoutServiceInterface;
 use Illuminate\Http\Request;

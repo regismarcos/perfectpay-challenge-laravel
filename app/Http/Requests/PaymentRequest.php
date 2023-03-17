@@ -2,7 +2,11 @@
 
 namespace App\Http\Requests;
 
+use App\Enums\MercadoPagoBoletoPaymentMethodEnum;
+use App\Enums\MercadoPagoCreditCardPaymentMethodEnum;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Enum;
 
 class PaymentRequest extends FormRequest
 {
@@ -11,18 +15,18 @@ class PaymentRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\Rule|array|string>
+     * @return array<string, array|string>
      */
     public function rules(): array
     {
         return [
-            'method' => 'in:boleto,cc'
+            'payment-method' => 'in:bolbradesco,master',
         ];
     }
 }

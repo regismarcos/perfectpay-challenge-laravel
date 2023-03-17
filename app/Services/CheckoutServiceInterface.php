@@ -2,6 +2,9 @@
 
 namespace App\Services;
 
+use App\Enums\MercadoPagoBoletoPaymentMethodEnum;
+use App\Enums\MercadoPagoCreditCardPaymentMethodEnum;
+
 /**
  * Interface CheckoutServiceInterface
  * @package   App\Services
@@ -13,5 +16,7 @@ interface CheckoutServiceInterface
     public function getRandomAmount(): float;
 
     public function getPaymenMethods(): array;
+
+    public function payBill(float $amount, string $paymentMethod): bool;
 
 }

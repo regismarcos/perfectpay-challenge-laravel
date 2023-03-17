@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CheckoutController;
+use App\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/welcome', function () {
     return view('welcome');
-});
+})->name('welcome');
 
-Route::get('/', [\App\Http\Controllers\CheckoutController::class, 'show'])->name('checkout.show');
+Route::get('/', [CheckoutController::class, 'show'])
+    ->name('checkout.show');
+Route::post('/payment-go', [CheckoutController::class, 'pay'])
+    ->middleware(VerifyCsrfToken::class)
+    ->name('checkout.pay');

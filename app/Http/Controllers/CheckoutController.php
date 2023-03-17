@@ -34,5 +34,6 @@ class CheckoutController extends Controller
     {
         $params = $request->validated();
         $amount = $request->session()->get('amount');
+
     }
 }

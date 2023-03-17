@@ -2,8 +2,6 @@
 
 namespace App\Providers;
 
-use App\Services\CheckoutService;
-use App\Services\CheckoutServiceInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -14,7 +12,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(CheckoutServiceInterface::class, CheckoutService::class);
+
     }
 
     /**

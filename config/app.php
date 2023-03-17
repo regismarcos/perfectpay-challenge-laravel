@@ -198,7 +198,7 @@ return [
         /**
          * Custom Service Providers...
          */
-        // App\Providers\CheckoutServiceProvider::class,
+         App\Providers\CheckoutServiceProvider::class,
 
     ],
 

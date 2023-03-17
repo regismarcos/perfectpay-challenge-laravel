@@ -2,10 +2,11 @@
 
 namespace App\Providers;
 
-use App\Services\CheckoutService;
 use App\Services\CheckoutServiceFactory;
 use App\Services\CheckoutServiceInterface;
-use Illuminate\Contracts\Support\DeferrableProvider;
+use App\Services\PaymentServiceFactory;
+use App\Services\PaymentServiceInterface;
+// use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -21,10 +22,12 @@ class CheckoutServiceProvider extends ServiceProvider // implements DeferrablePr
      */
     public function register(): void
     {
-//        $this->app->bind(CheckoutServiceInterface::class, function () {
-//            return (new CheckoutServiceFactory())();
-//        });
-        $this->app->bind(CheckoutServiceInterface::class, CheckoutService::class);
+        $this->app->bind(CheckoutServiceInterface::class, function () {
+            return (new CheckoutServiceFactory())();
+        });
+        $this->app->bind(PaymentServiceInterface::class, function () {
+            return (new PaymentServiceFactory())();
+        });
     }
 
     /**
